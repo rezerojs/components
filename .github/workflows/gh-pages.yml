@@ -1,0 +1,29 @@
+name: Github Pages
+on:
+  push:
+    branches:
+      - main # default branch
+jobs:
+  deploy:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: install pnpm
+        run: npm i pnpm@latest -g
+
+      - name: install dependencies
+        run: pnpm install
+        
+      - name: build docs
+        run: pnpm docs:build
+          
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs-dist

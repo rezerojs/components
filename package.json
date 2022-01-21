@@ -1,0 +1,81 @@
+{
+  "name": "@rezero/components",
+  "version": "0.0.1",
+  "description": "基于antd的中台应用组件扩展库",
+  "keywords": [
+    "antd",
+    "admin",
+    "ant-design",
+    "ant-design-pro"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=12.2.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "typings": "dist/index.d.ts"
+  },
+  "files": [
+    "/lib",
+    "/es",
+    "/dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rezerojs/components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rezerojs/components/issues"
+  },
+  "homepage": "https://github.com/rezerojs/components",
+  "license": "MIT",
+  "authors": [
+    "xoptimal <xoptimal@163.com> (https://github.com/xoptimal)"
+  ],
+  "scripts": {
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "preinstall": "npx only-allow pnpm",
+    "ci:version": "changeset version",
+    "ci:publish": "changeset publish"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "peerDependencies": {
+    "@ant-design/pro-card": ">=1.18.23",
+    "antd": ">=4.18.3",
+    "react": ">=16.12.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.19.0",
+    "@umijs/test": "^3.0.5",
+    "babel-plugin-import": "^1.12.2",
+    "dumi": "^1.0.16",
+    "father-build": "^1.17.2",
+    "gh-pages": "^3.0.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^2.2.1",
+    "yorkie": "^2.0.0",
+    "@ant-design/pro-card": "^1.18.23",
+    "antd": "^4.18.3",
+    "react": "^16.12.0"
+  }
+}
