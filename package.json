@@ -1,5 +1,5 @@
 {
-  "name": "@rezero/components",
+  "name": "@rezerojs/components",
   "version": "0.0.1",
   "description": "基于antd的中台应用组件扩展库",
   "keywords": [
